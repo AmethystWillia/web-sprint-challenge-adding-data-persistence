@@ -6,12 +6,12 @@ exports.up = function(knex) {
             tbl.string('project_description', 200);
             tbl.boolean('project_completed').defaultTo(false);
         })
-        .createTable('resoources', tbl => {
+        .createTable('resources', tbl => {
             tbl.increments('resource_id');
             tbl.string('resource_name', 80).notNullable().unique();
             tbl.string('resource_description', 200);
         })
-        .createTable('taks', tbl => {
+        .createTable('tasks', tbl => {
             tbl.increments('task_id');
             tbl.string('task_description', 200).notNullable();
             tbl.string('task_notes', 120);
