@@ -13,6 +13,14 @@ router.get('/', (req, res, next) => {
         })
 });
 
-router.post('/', (req, res, next) => {});
+router.post('/', (req, res, next) => {
+    Projects.postProject(req.body)
+        .then(project => {
+            res.status(201).json(project);
+        })
+        .catch(err => {
+            next(err);
+        })
+});
 
 module.exports = router; 
