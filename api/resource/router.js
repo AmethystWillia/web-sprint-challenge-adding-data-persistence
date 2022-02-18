@@ -13,4 +13,14 @@ router.get('/', (req, res, next) => {
         })
 });
 
+router.post('/', (req, res, next) => {
+    Resources.postResource(req.body)
+        .then(resource => {
+            res.status(201).json(resource);
+        })
+        .catch(err => {
+            next(err);
+        })
+});
+
 module.exports = router;
